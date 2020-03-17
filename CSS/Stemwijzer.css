@@ -1,0 +1,442 @@
+body{
+	background-image: url("https://www.pigbusiness.nl/site/assets/files/0/34/329/tweede_kamer-_den_haag_i_z.-detail.jpg");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: arial;
+}
+
+#outerdiv{
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	height: 700px;
+	width: auto;
+	padding-top: 10px;
+}
+
+#innerdiv{
+	background-color: white;
+	margin: auto;
+	min-width: 950px;
+	width: 950px;
+	padding-right: 50px;
+	padding-left: 50px;
+
+}
+
+#innerdivvragen{
+	background-color: white;
+	margin: auto;
+	min-width: 950px;
+	width: 1050px;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 50px;
+	min-height: 600px;
+	padding-bottom: 10px;
+}
+
+#titel{
+	text-align: center;
+}
+
+#discripties{
+	font-size: 22px;
+	height: 100px;
+	display: inline-block;;
+}
+
+#discripties > img{
+	margin-right: 700px;
+	padding-top: 0px;
+	width: 440px;
+}
+
+#startbutton{
+	border-radius: 3px;
+	border: 1.5px solid black;
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-family: Arial;
+	font-size: 22px;
+	font-weight: bold;
+	padding: 20px 60px;
+	margin-top: 50px;
+	background-color: black;
+	float: right;
+	margin-right: -200px;
+}
+
+#startbutton:hover{
+	border-radius: 3px;
+	border: 1.5px solid #018aa9;
+	display: inline-block;
+	cursor: pointer;
+	transition-duration: 0.5s;
+	color: white;
+	text-align: center;
+	font-family: Arial;
+	font-size: 22px;
+	font-weight: bold;
+	padding: 20px 60px;
+	margin-top: 50px;
+	background-color: #018aa9;
+	float: right;
+	margin-right: -200px;
+}
+
+
+#voorpagina-text-1{
+	font-weight: 900;
+	margin-top: -10px;
+	margin-left: 50px;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+
+#voorpagina-text-2{
+	color: #01B4DC;
+	margin-left: 50px;
+	font-weight: bold;
+	line-height: 1.3em;
+	letter-spacing: 0.2px;
+}
+
+.text-with-icons{
+	font-size: 18px;
+	max-width: 350px;
+	margin-left: 50px;
+	display: flex;
+	min-width: 400px;
+	line-height: 1.2;
+	font-size: 19px;
+}
+
+.icons{
+	width: 50px;
+	height: 50px;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+#Terugblik{
+	padding-right: 70px;
+	padding-left: 70px;
+	font-size: 18.5px;
+	line-height: 1.2;
+}
+
+#Terugblik > img{
+	width: 500px;
+}
+
+#Stemmentrackerimage{
+	min-height: 25px;
+}
+
+hr{
+	border-width: 2.5px;
+	border-top: 2px solid;
+	border-color: grey;
+	border-style: dotted;
+	margin-left: -50px;
+	margin-right: -50px;
+	margin-top: 50px;
+	margin-bottom: -1.5px;
+}
+
+#Stemmentracker{
+	background-color: #f9f9f9;
+	margin-left: -50px;
+	margin-right: -50px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#partijen-start{
+	background-color: #01B4DC;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-left: -50px;
+	margin-right: -50px;
+	padding-bottom: 20px;
+}
+
+#p1v{
+	margin-left: 70px;
+	margin-top: 70px;
+}
+
+#partijen-start > h2{
+	margin-left: 70px;
+	color: white;
+	padding-bottom: 20px;
+	max-width: 400px;
+}
+
+.partijen-lijst{
+	margin-left: 70px;
+	margin-right: 70px;
+}
+
+.PartijAfbeelding{
+	height: 50px !important;
+	width: 50px !important;
+	text-align: center;
+	margin-left: 1px;
+}
+
+.politiekepartij{
+	margin-left: 10px;
+	overflow: hidden;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	border-radius: 50px;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.politiekepartij:hover{
+	transform: scale(2);
+	transition-duration: 0.5s;
+}
+
+#footer{
+	margin-top: 20px;
+	height: 100px;
+	padding-left: 220px;
+	margin-bottom: -20px;
+}
+
+#stemwijzer-transparent{
+	margin-right: 705px;
+}
+
+#footer > a > img{
+	height: 26px;
+}
+
+#statement{
+	font-size: 32px;
+	min-height: 125px;
+}
+
+#title{
+	color: #01B4DC;
+	font-size: 32px;
+}
+
+#backbutton > button{
+	width: 50px;
+	height: 50px;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-image: url('https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-arrow-back.svg');
+	background-color: #E7EAEB;
+	border-radius: 50px;
+	transition: transform .2s;
+	border: 0;
+}
+
+#backbutton > button:hover{
+	transform: translateX(-3px);
+	border: 0;
+	cursor: pointer;
+}
+
+
+#stemwijzer{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+#buttons{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.vragenbuttons{
+	border-radius: 3px;
+	border: 1.5px solid black;
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-family: Arial;
+	font-size: 22px;
+	font-weight: bold;
+	padding: .65em .5em;
+	margin-top: 10px;
+	background-color: black;
+	min-width: 180px;
+}
+
+.vragenbuttons:hover{
+	border-radius: 3px;
+	border: 1.5px solid #01B4DC;
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-family: Arial;
+	font-size: 22px;
+	font-weight: bold;
+	padding: .65em .5em;
+	margin-top: 10px;
+	background-color: #01B4DC;
+	min-width: 180px;
+}
+
+#overslaan{
+	margin-top: 10px;
+	border-radius: 3px;
+	border: 1.5px solid white;
+	display: inline-block;
+	cursor: pointer;
+	color: grey;
+	text-align: center;
+	font-family: Arial;
+	font-size: 22px;
+	padding: .65em .5em;
+	margin-top: 10px;
+	background-color: white;
+	min-width: 180px;
+}
+
+#overslaan::after{
+	content: '';
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background-image: url('https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-backspace-right.svg');
+	background-repeat: no-repeat;
+	background-position: 50%;
+	margin-left: 10px;
+	margin-bottom: -5px;
+	transition-property: transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+}
+
+#overslaan:hover::after{
+	content: '';
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background-image: url('https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-backspace-right.svg');
+	background-repeat: no-repeat;
+	background-position: 50%;
+	margin-left: 20px;
+	margin-bottom: -5px;
+	transition-property: transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+}
+
+#meningen{
+	width: 750px;
+	margin-left: 100px;
+	margin-top: 100px;
+	padding-right: 50px;
+	padding-top: 40px;
+	border-color: #e4e4e4;
+	border: 1px solid transparent;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+#meningen[open]{
+	width: 750px;
+	margin-left: 100px;
+	margin-top: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
+	background-color: #f3f3f3;
+	padding-top: 40px;
+	border-color: #e4e4e4;
+	border: 1px solid transparent;
+	padding-bottom: 20px;
+}
+
+#meningen[open] > #meningentitel{
+	background-image: url('https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-close.svg');
+	background-position: top 5px right 30px;
+	background-repeat: no-repeat;
+	background-size: 18px;
+}
+
+#meningentitel{
+	font-size: 24px;
+	position: relative;
+	padding-left: 50px;
+	cursor: pointer;
+	padding-bottom: 30px;
+	width: 100%;
+}
+
+#meningentitel::before{
+	left: 0;
+	content: '';
+	position: absolute;
+	width: 34px;
+	height: 24px;
+	background-image: url('https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-forum.svg');
+}
+
+#meningen > summary:before{
+	content: '' !important;
+}
+
+details summary::-webkit-details-marker {
+  display:none;
+}
+
+#meningenwrapper{
+	display: flex;
+	justify-content: space-between;
+	display: -ms-flexbox;
+	-ms-flex-pack: justify;
+}
+
+#meningenwrapper > div{
+	width: 30%;
+}
+
+.mening-subtitle{
+	border-bottom: 2px solid black;
+	padding-left: 3px;
+	padding-bottom: 3px;
+	text-align: left;
+
+}
+
+.partijstatement{
+	font-size: 14px;
+	padding: .75em;
+	border-bottom: 1px solid #979797;
+	background-image: url('https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-drop-down.svg');
+	background-position: top .5em right .75em;
+	background-repeat: no-repeat;
+}
+
+#logo-van-stemwijzer{
+	height: 56px;
+	width: 270px;
+	background-size: contain;
+	background-position: center left;
+	margin-left: 50px;
+	margin-top: 30px;
+}
+
