@@ -131,12 +131,23 @@ function displayQuestion(subjectsNR){
 	var title = subjects[vraag].title;
 	document.getElementById("title").innerHTML = title;
 	document.getElementById("statement").innerHTML = statement;
+	displayParties(subjectsNR);
  //loopt over de code heen om zo de titel en de statement
 }
 
 
 
-function displayParties(){
+function displayParties(subjectsNR){
+	if (subjectsNR === undefined) {
+    subjectsNR = 0;
+}
+for (subjectsNR; subjectsNR < subjects.length; subjectsNR++){ 
+	for (var partiesNR; partiesNR < parties.length; partiesNR++){
+
+	var partyposition = subjects[subjectsNR].parties[partiesNR];
+	var partyname = subjects[subjectsNR].parties[partiesNR].name;
+	var partyopinion = subjects[subjectsNR].parties[partiesNR].opinion;		
+
 	var party = document.createElement("DETAILS");
 	party.className = "partijstatement";
 	var partysummary = document.createElement("SUMMARY");
@@ -148,6 +159,8 @@ function displayParties(){
 	party.appendChild(partysummary);
 	party.appendChild(partylong);
 
+	console.log(partyposition);
+
 	if (partyposition == 'pro') {
 		document.getElementById('meningeens').appendChild(party);
 	} else if (partyposition == 'contra') {
@@ -155,6 +168,8 @@ function displayParties(){
 	} else {
 		document.getElementById('meninggeen').appendChild(party);
 	}
+}
+}
 }
 
 

@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<title>match answers</title>
+	<meta charset = "utf-8">
+</head>
+<body>
+	<button id="match" >Match</button>
+</body>
+<script>
+	mates = [
+		{name: 'Arnold'},
+		{name: 'Bob'},
+		{name: 'Charles'},
+		{name: 'John'}
+	];
+
+	meals = [
+		{	name: 'friet',
+			mates: [
+				{name: 'Arnold', answer: 'ok'},
+				{name: 'Bob', answer: 'love-it'},
+				{name: 'Charles', answer: 'love-it'},
+				{name: 'John', answer: 'hate-it'}
+			]},
+		{	name: 'pizza',
+			mates: [
+				{name: 'Arnold', answer: 'love-it'},
+				{name: 'Bob', answer: 'ok'},
+				{name: 'Charles', answer: 'love-it'},
+				{name: 'John', answer: 'ok'}
+			]},
+		{	name: 'curry',
+			mates: [
+				{name: 'Arnold', answer: 'love-it'},
+				{name: 'Bob', answer: 'hate-it'},
+				{name: 'Charles', answer: 'hate-it'},
+				{name: 'John', answer: 'ok'}
+			]},
+		{	name: 'stamppot',
+			mates: [
+				{name: 'Arnold', answer: 'love-it'},
+				{name: 'Bob', answer: 'ok'},
+				{name: 'Charles', answer: 'love-it'},
+				{name: 'John', answer: 'love-it'}
+			]},
+	];
+// answers corresponding with meals (i like or not)
+answers = [
+	'ok','love-it','love-it','hate-it'
+]
+
+
+
+function matchMealMate (){
+	function findMate(mate){
+	return mate.name = term;
+	}
+	// add property 'score'  for mates and set to zero
+	for (let mateNR = 0; mateNR < mates.length; mateNR++){
+		mates[mateNR].score = 0;
+	}
+	// Iterate through answers and corresponding meals
+	for (let answerNR in meals) {
+		// per meal iterate through its mates
+		console.log('show mates of meals elements ' +answerNR);
+		console.dir(meals[answerNR].mates);
+		for (let mateNR in meals[answerNR].mates) {
+			console.log('show mate: ' + mateNR);
+			console.dir(meals[answerNR].mates[mateNR]);
+			if (answers[answerNR] === meals[answerNR].mates[mateNR].answer) {
+				console.log('answers equal to ' + answers[answerNR]);
+
+				var term = meals[answerNR].mates[mateNR].answer;
+
+				var mate = mates.find(findMate);
+				console.dir(mate);
+
+
+				mates[mateNR].score++;
+			}
+
+		}
+	}
+
+
+			// if my-like for this meal is equal to the mealFriend its answers then
+				// find corresponding element in mates en increment its score
+	// sort mates on score
+}
+
+// call the match function
+matchMealMate();
+
+// console the resulting list of mates
+//console.dir(mates);
+
+console.dir(mates);
+
+
+
+</script>
+</html>
