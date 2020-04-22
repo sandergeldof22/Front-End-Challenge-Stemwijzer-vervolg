@@ -531,6 +531,40 @@ details summary::-webkit-details-marker {
 	margin-bottom: 10px;
 }
 
+#end-button{
+	border-radius: 3px;
+	border: 1.5px solid black;
+	display: none;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-family: Arial;
+	font-size: 22px;
+	font-weight: bold;
+	padding: 20px 60px;
+	margin-top: 50px;
+	background-color: black;
+	float: right;
+	margin-bottom: 10px;	
+}
+
+#end-button:hover{
+	border-radius: 3px;
+	border: 1.5px solid black;
+	display: none;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	font-family: Arial;
+	font-size: 22px;
+	font-weight: bold;
+	padding: 20px 60px;
+	margin-top: 50px;
+	background-color: black;
+	float: right;
+	margin-bottom: 10px;
+}
+
 label{
 	color: black;
 	font-size: 14px;	

@@ -211,11 +211,15 @@ function extraValue(){
 			var idnumber = box.substr(2);
 			if (idnumber == result[idnumber].Vraag){
 				var endresult = result[idnumber].antwoord;
+				if (endresult.startsWith('X')){
+					finalresult = endresult;
+					console.log(finalresult);
+				} else {
 				finalresult = 'X' + endresult;
 				result[idnumber].antwoord = finalresult;
 				console.log(result);
 			}
-
+			}
 		}
 	}
 
@@ -232,7 +236,8 @@ function toParties(){
 	document.getElementById('thema-partijen').style.display = 'none';
 	document.getElementById('thema-title').innerHTML = 'Welke partijen wilt u meenemen in het resultaat?';
 	document.getElementById('thema-statement').innerHTML = 'U kunt kiezen voor zittende partijen, die nu in de Tweede Kamer vertegenwoordigd zijn. Daarbij nemen we ook de partijen mee die in de peilingen op minimaal een zetel staan. U kunt alle partijen meenemen en u kunt een eigen selectie maken van tenminste drie partijen.';
-	document.getElementById('thema-button').innerHTML = 'Naar Resultaat';
+	document.getElementById('thema-button').style.display = 'none';
+	document.getElementById('end-button').style.display = 'initial';
 	document.getElementById('partijen-keuzes').style.display = 'inherit';
 	document.getElementById('backtoquestion').style.display = 'none';
 	document.getElementById('backtoparties').style.display = 'inherit';
@@ -329,8 +334,13 @@ function backToSubjects(){
 	document.getElementById('thema-partijen').style.display = 'initial';
 	document.getElementById('thema-title').innerHTML = 'Zijn er onderwerpen die u extra belangrijk vindt?';
 	document.getElementById('thema-statement').innerHTML = 'Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.';
-	document.getElementById('thema-button').innerHTML = 'Naar Resultaat';
 	document.getElementById('partijen-keuzes').style.display = 'none';
+	document.getElementById('end-button').style.display = 'none';
+	document.getElementById('thema-button').style.display = 'initial';
+}
+
+function Match(){
+
 }
 
 
