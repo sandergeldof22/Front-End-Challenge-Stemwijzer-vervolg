@@ -34,7 +34,8 @@
 	statement_next.onclick = function(){
 		uncheckAll();
 	}
-	button_thema.onclick = function(){
+	button_thema.onclick = function(){ //hierow
+		extraValue();
 		toParties();
 	}
 	select_all.onclick = function(){
@@ -53,7 +54,7 @@
 		backToQuestions();
 	}
 	button_parties_back.onclick = function(){
-		backToParties();
+		backToSubjects();
 	}
 
 
@@ -173,7 +174,7 @@ if (statementcheck.length !== 30){
 
 		var title = subjects[i].title
 
-		var id = "id" + [i + 1];
+		var id = "id" + [i];
 
 		var statementList = document.createElement("LI");
 		statementList.className = 'statementChoice';
@@ -201,6 +202,25 @@ if (statementcheck.length !== 30){
 }
 }
 
+function extraValue(){
+	var boxes = document.getElementsByClassName('input-statement');
+
+	for (var i = 0; i < boxes.length; i++){
+		if (boxes[i].checked){
+			var box = boxes[i].id;
+			var idnumber = box.substr(2);
+			if (idnumber == result[idnumber].Vraag){
+				var endresult = result[idnumber].antwoord;
+				finalresult = 'X' + endresult;
+				result[idnumber].antwoord = finalresult;
+				console.log(result);
+			}
+
+		}
+	}
+
+}
+
 function uncheckAll(){
   var inputs = document.querySelectorAll('.input-statement'); 
         for (var i = 0; i < inputs.length; i++) { 
@@ -222,6 +242,10 @@ function toParties(){
 function generateParties(){
 	var allPartiesList = document.getElementById('partijen-list');
 	var allParties = parties;
+	var partiesChoice = document.getElementsByClassName('partiesChoice');
+
+
+	if (partiesChoice.length !== 24) {
 
 	for (var i = 0; i < allParties.length; i++){	
 
@@ -250,12 +274,12 @@ function generateParties(){
 		partiesList.appendChild(label);
 
 		allPartiesList.append(partiesList);
+	}
 	}	
 }
 
 function unSelectAll(){
 	var checks = document.getElementsByClassName('input-partie');
-	console.log(checks);
 	for (var i = 0; i < checks.length; i++){
 		checks[i].checked = false;
 	}
@@ -299,8 +323,14 @@ function backToQuestions(){
 	}
 }
 
-function backToParties(){
-
+function backToSubjects(){
+	document.getElementById('backtoparties').style.display = 'none';
+	document.getElementById('backtoquestion').style.display = 'initial';
+	document.getElementById('thema-partijen').style.display = 'initial';
+	document.getElementById('thema-title').innerHTML = 'Zijn er onderwerpen die u extra belangrijk vindt?';
+	document.getElementById('thema-statement').innerHTML = 'Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.';
+	document.getElementById('thema-button').innerHTML = 'Naar Resultaat';
+	document.getElementById('partijen-keuzes').style.display = 'none';
 }
 
 
