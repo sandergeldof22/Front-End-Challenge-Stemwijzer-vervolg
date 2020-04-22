@@ -550,7 +550,7 @@ details summary::-webkit-details-marker {
 
 #end-button:hover{
 	border-radius: 3px;
-	border: 1.5px solid black;
+	border: 1.5px solid #01B4DC;
 	display: none;
 	cursor: pointer;
 	color: white;
@@ -560,7 +560,7 @@ details summary::-webkit-details-marker {
 	font-weight: bold;
 	padding: 20px 60px;
 	margin-top: 50px;
-	background-color: black;
+	background-color: #01B4DC;
 	float: right;
 	margin-bottom: 10px;
 }
