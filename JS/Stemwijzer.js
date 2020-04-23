@@ -14,6 +14,7 @@
 	var all_buttons = document.querySelector(".vragenbuttons");
 	var button_question_back = document.querySelector("#backtoquestion");
 	var button_parties_back = document.querySelector("#backtoparties");
+	var end_button = document.querySelector('#end-button');
 	var result = [];
 
 	button_back.onclick = function(){
@@ -55,6 +56,9 @@
 	}
 	button_parties_back.onclick = function(){
 		backToSubjects();
+	}
+	end_button.onclick = function(){
+		Match();
 	}
 
 
@@ -333,13 +337,21 @@ function backToSubjects(){
 	document.getElementById('backtoquestion').style.display = 'initial';
 	document.getElementById('thema-partijen').style.display = 'initial';
 	document.getElementById('thema-title').innerHTML = 'Zijn er onderwerpen die u extra belangrijk vindt?';
-	document.getElementById('thema-statement').innerHTML = 'Aangevinkte stellingen tellen extra mee bij het berekenen van het resulaat.';
+	document.getElementById('thema-statement').innerHTML = 'Aangevinkte stellingen tellen extra mee bij het berekenen van het resultaat.';
 	document.getElementById('partijen-keuzes').style.display = 'none';
 	document.getElementById('end-button').style.display = 'none';
 	document.getElementById('thema-button').style.display = 'initial';
 }
 
 function Match(){
+
+	for(let partiesNR = 0; partiesNR < parties.length; partiesNR++){
+		parties[partiesNR].score = 0;
+	}
+	for(let answerNR in result){
+		console.log('Show Parties of result element: ' + answerNR);
+		console.dir(result[answerNR].antwoord);
+	}
 
 }
 
