@@ -349,8 +349,13 @@ function Match(){
 		parties[partiesNR].score = 0;
 	}
 	for(let answerNR in result){
-		console.log('Show Parties of result element: ' + answerNR);
-		console.dir(result[answerNR].antwoord);
+		console.log('Show the result of: ' + answerNR);
+		console.dir(result); //code tot zover die goed werkt - hieronder iets minder
+		for(let partiesNR in result[answerNR]){
+			console.log(result[partiesNR]);
+			console.log(answerNR);
+			console.log(result[answerNR]);
+		}
 	}
 
 }
