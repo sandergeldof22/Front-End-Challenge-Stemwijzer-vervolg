@@ -89,8 +89,9 @@ function next(event){
 
 		result.push(data = {
 		Vraag: vraag,
-		antwoord: event
+		antwoord: event,
 	});		
+
 		console.log(result);
 		importantSubjects();
 		generateStatements();
@@ -99,7 +100,7 @@ function next(event){
 
 		result.push(data = {
 		Vraag: vraag,
-		antwoord: event
+		antwoord: event,
 	});
 
 	vraag++;
@@ -344,19 +345,23 @@ function backToSubjects(){
 }
 
 function Match(){
-
 	for(let partiesNR = 0; partiesNR < parties.length; partiesNR++){
-		parties[partiesNR].score = 0;
-	}
-	for(let answerNR in result){
-		console.log('Dit is het resultaat van vraag: ' + answerNR);
-		console.log(result[answerNR]);
-		 //code tot zover die goed werkt - hieronder iets minder
-		for (var partiesNR = 0; partiesNR < parties.length - 1; partiesNR++){
-			console.log(partiesNR);
-			console.log(subjects[answerNR].parties[partiesNR]);
+			console.log(parties[partiesNR]);	
+				parties.forEach(function (element) {
+					element.score = 0
+				});
+		};
+		for(let answerNR in result){
+			console.log('Dit is het resultaat van vraag: ' + answerNR);
+			console.log(result[answerNR]);
+				for (var partiesNR = 0; partiesNR < parties.length - 1; partiesNR++){
+					console.log(subjects[answerNR].parties[partiesNR]); //tot zover werkt de code
+					if (result[answerNR].antwoord === subjects[answerNR].parties[partiesNR].position){
+
+						console.log(parties[partiesNR]);
+					}
+				}
 		}
-	}
 
 }
 
