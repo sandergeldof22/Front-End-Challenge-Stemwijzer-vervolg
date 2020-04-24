@@ -349,12 +349,12 @@ function Match(){
 		parties[partiesNR].score = 0;
 	}
 	for(let answerNR in result){
-		console.log('Show the result of: ' + answerNR);
-		console.dir(result); //code tot zover die goed werkt - hieronder iets minder
-		for(let partiesNR in result[answerNR]){
-			console.log(result[partiesNR]);
-			console.log(answerNR);
-			console.log(result[answerNR]);
+		console.log('Dit is het resultaat van vraag: ' + answerNR);
+		console.log(result[answerNR]);
+		 //code tot zover die goed werkt - hieronder iets minder
+		for (var partiesNR = 0; partiesNR < parties.length - 1; partiesNR++){
+			console.log(partiesNR);
+			console.log(subjects[answerNR].parties[partiesNR]);
 		}
 	}
 
