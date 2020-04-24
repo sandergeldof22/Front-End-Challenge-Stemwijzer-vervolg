@@ -222,7 +222,6 @@ function extraValue(){
 				} else {
 				finalresult = 'X' + endresult;
 				result[idnumber].antwoord = finalresult;
-				console.log(result);
 			}
 			}
 		}
@@ -346,10 +345,10 @@ function backToSubjects(){
 
 function Match(){
 	for(let partiesNR = 0; partiesNR < parties.length; partiesNR++){
-			console.log(parties[partiesNR]);	
 				parties.forEach(function (element) {
 					element.score = 0
-				});
+
+				});				
 		};
 		for(let answerNR in result){
 			console.log('Dit is het resultaat van vraag: ' + answerNR);
@@ -357,8 +356,16 @@ function Match(){
 				for (var partiesNR = 0; partiesNR < parties.length - 1; partiesNR++){
 					console.log(subjects[answerNR].parties[partiesNR]); //tot zover werkt de code
 					if (result[answerNR].antwoord === subjects[answerNR].parties[partiesNR].position){
-
-						console.log(parties[partiesNR]);
+						console.log('Het antwoord van ' + subjects[answerNR].parties[partiesNR].name + ' is gelijk aan het gegeven antwoord');
+						var partyname = subjects[answerNR].parties[partiesNR].name;
+						console.log(partyname);
+						if (partyname === subjects[answerNR].parties[partiesNR].name){
+							parties[partiesNR].score++;
+							console.log(parties[partiesNR].score);
+						}
+					} else {
+						console.log('Het antwoord van ' + subjects[answerNR].parties[partiesNR].name + ' is NIET gelijk aan het gegeven antwoord')
+						console.log(parties[partiesNR].score);
 					}
 				}
 		}
