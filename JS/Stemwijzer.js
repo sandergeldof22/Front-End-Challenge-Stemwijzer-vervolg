@@ -354,14 +354,20 @@ function Match(){
 						var partyname = subjects[answerNR].parties[partiesNR].name;
 						console.log(partyname);
 						if (partyname === subjects[answerNR].parties[partiesNR].name){
-							parties[partiesNR].score++;
-							console.log(parties[partiesNR].score);
+							if (result[answerNR].multiplier == 1){
+								parties[partiesNR].score++;
+								console.log(parties[partiesNR].score);								
+							} else {
+								parties[partiesNR].score+=2;
+								console.log(parties[partiesNR].score);
+							}
 						}
 					} else {
 						console.log('Het antwoord van ' + subjects[answerNR].parties[partiesNR].name + ' is NIET gelijk aan het gegeven antwoord')
 						console.log(parties[partiesNR].score);
 					}
 				}
+
 		}
 
 }
