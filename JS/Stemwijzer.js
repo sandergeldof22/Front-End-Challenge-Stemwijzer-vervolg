@@ -90,9 +90,8 @@ function next(event){
 		result.push(data = {
 		Vraag: vraag,
 		antwoord: event,
+		multiplier: 1,
 	});		
-
-		console.log(result);
 		importantSubjects();
 		generateStatements();
 	} else {
@@ -101,6 +100,7 @@ function next(event){
 		result.push(data = {
 		Vraag: vraag,
 		antwoord: event,
+		multiplier: 1,
 	});
 
 	vraag++;
@@ -207,26 +207,19 @@ if (statementcheck.length !== 30){
 }
 }
 
+
 function extraValue(){
 	var boxes = document.getElementsByClassName('input-statement');
 
-	for (var i = 0; i < boxes.length; i++){
+	for(var i = 0; i < boxes.length; i++){
 		if (boxes[i].checked){
 			var box = boxes[i].id;
-			var idnumber = box.substr(2);
+ 			var idnumber = box.substr(2);
 			if (idnumber == result[idnumber].Vraag){
-				var endresult = result[idnumber].antwoord;
-				if (endresult.startsWith('X')){
-					finalresult = endresult;
-					console.log(finalresult);
-				} else {
-				finalresult = 'X' + endresult;
-				result[idnumber].antwoord = finalresult;
-			}
+				result[idnumber].multiplier = 2;	
 			}
 		}
 	}
-
 }
 
 function uncheckAll(){
@@ -344,6 +337,7 @@ function backToSubjects(){
 }
 
 function Match(){
+	console.log(result);
 	for(let partiesNR = 0; partiesNR < parties.length; partiesNR++){
 				parties.forEach(function (element) {
 					element.score = 0
