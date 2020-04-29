@@ -638,3 +638,7 @@ label{
 	color: #01B4DC;
 	text-align: center;
 }
+
+#end-screen{
+	display: none;
+}

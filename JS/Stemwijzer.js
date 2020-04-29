@@ -235,9 +235,9 @@ function toParties(){
 	document.getElementById('thema-statement').innerHTML = 'U kunt kiezen voor zittende partijen, die nu in de Tweede Kamer vertegenwoordigd zijn. Daarbij nemen we ook de partijen mee die in de peilingen op minimaal een zetel staan. U kunt alle partijen meenemen en u kunt een eigen selectie maken van tenminste drie partijen.';
 	document.getElementById('thema-button').style.display = 'none';
 	document.getElementById('end-button').style.display = 'initial';
-	document.getElementById('partijen-keuzes').style.display = 'inherit';
+	document.getElementById('partijen-keuzes').style.display = 'initial';
 	document.getElementById('backtoquestion').style.display = 'none';
-	document.getElementById('backtoparties').style.display = 'inherit';
+	document.getElementById('backtoparties').style.display = 'initial';
 	generateParties();	
 }
 
@@ -261,8 +261,8 @@ function generateParties(){
 		var partiesChoice = document.createElement("INPUT");
 		partiesChoice.className = 'input-partie';
 		partiesChoice.type = "checkbox";
-		partiesChoice.name = "name";
-		partiesChoice.value = "value";
+		partiesChoice.name = 'parties-names';
+		partiesChoice.value = title;
 
 		partiesChoice.id = id;	
 
@@ -308,6 +308,8 @@ function selectSecular(){
 	}
 }
 
+
+
 function backToQuestions(){
 	var titel = document.getElementById('thema-statements');
 
@@ -337,22 +339,19 @@ function backToSubjects(){
 }
 
 function Match(){
-	console.log(result);
+	console.log(parties);
 	for(let partiesNR = 0; partiesNR < parties.length; partiesNR++){
 				parties.forEach(function (element) {
 					element.score = 0
-
-				});				
-		};
+				});		
+	};
 		for(let answerNR in result){
 			console.log('Dit is het resultaat van vraag: ' + answerNR);
 			console.log(result[answerNR]);
 				for (var partiesNR = 0; partiesNR < parties.length - 1; partiesNR++){
-					console.log(subjects[answerNR].parties[partiesNR]); //tot zover werkt de code
+					console.log(subjects[answerNR].parties[partiesNR]); 
 					if (result[answerNR].antwoord === subjects[answerNR].parties[partiesNR].position){
-						console.log('Het antwoord van ' + subjects[answerNR].parties[partiesNR].name + ' is gelijk aan het gegeven antwoord');
 						var partyname = subjects[answerNR].parties[partiesNR].name;
-						console.log(partyname);
 						if (partyname === subjects[answerNR].parties[partiesNR].name){
 							if (result[answerNR].multiplier == 1){
 								parties[partiesNR].score++;
@@ -363,16 +362,35 @@ function Match(){
 							}
 						}
 					} else {
-						console.log('Het antwoord van ' + subjects[answerNR].parties[partiesNR].name + ' is NIET gelijk aan het gegeven antwoord')
 						console.log(parties[partiesNR].score);
 					}
 				}
-
 		}
-
+		toFinalResult();
 }
 
+function toFinalResult(){
 
+
+
+	var checks = document.getElementsByClassName('input-partie');
+	var allParties = parties;
+	for (var i = 0; i < allParties.length; i++){
+		if(checks[i].checked){
+			console.log(checks[i].value);
+		} else {
+			console.log(checks[i].value);
+		}
+	}
+
+	document.getElementById('thema-title').innerHTML = 'De eindresultaten als volgt';
+	document.getElementById('thema-statements').innerHTML = 'Uw mening komt het meest overeen met';
+	document.getElementById('partijen-keuzes').style.display = 'none';
+	document.getElementById('end-screen').style.display = 'initial';
+	document.getElementById('backtoparties').style.display = 'none';
+	document.getElementById('end-button').style.display = 'none';
+
+}
 
 
 
