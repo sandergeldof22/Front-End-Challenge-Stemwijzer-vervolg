@@ -641,4 +641,18 @@ label{
 
 #end-screen{
 	display: none;
+	margin: 100px;
+}
+
+.placement{
+	color: #01B4DC;
+}
+
+.end-result{
+	display: inline-block;
+	margin-left: 125px;	
+}
+
+.end-score{
+	color: #01B4DC;
 }

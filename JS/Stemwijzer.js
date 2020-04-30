@@ -16,6 +16,7 @@
 	var button_parties_back = document.querySelector("#backtoparties");
 	var end_button = document.querySelector('#end-button');
 	var result = [];
+	var endscore = [];
 
 	button_back.onclick = function(){
 		goBack();
@@ -377,26 +378,40 @@ function Match(){
 
 function toFinalResult(){
 
-
+	document.getElementById('thema-title').innerHTML = 'De eindresultaten als volgt';
+	document.getElementById('thema-statement').innerHTML = 'Uw mening komt het meest overeen met';
+	document.getElementById('end-screen').style.display = "initial";
+	document.getElementById('backtoparties').style.display = "none";
+	document.getElementById('end-button').style.display = "none";
+	document.getElementById('partijen-keuzes').style.display = "none";		
 
 	var checks = document.getElementsByClassName('input-partie');
 	var allParties = parties;
 	for (var i = 0; i < allParties.length; i++){
 		if(checks[i].checked){
 			console.log(checks[i].value);
+			for (let partiesNR = 0; partiesNR < parties.length; partiesNR++){
+				if (checks[i].value === parties[partiesNR].name){
+					var resultparty = parties[partiesNR].name;
+					var resultscore = parties[partiesNR].score;
+					endscore.push(data = {
+						Partij: resultparty,
+						Score: resultscore,
+					});
+				}
+			}
 		} else {
 			console.log(checks[i].value);
 		}
 	}
-
-	document.getElementById('thema-title').innerHTML = 'De eindresultaten als volgt';
-	document.getElementById('thema-statement').innerHTML = 'Uw mening komt het meest overeen met';
-	document.getElementById('end-screen').style.display = "initial";
-	document.getElementById('backtoparties').style.display = "none";
-	document.getElementById('end-button').style.display = "none";
-	document.getElementById('partijen-keuzes').style.display = "none";	
+	console.log(endscore);
+	document.getElementById('1st score').innerHTML = endscore[0].Partij;
+	document.getElementById('2nd score').innerHTML = endscore[1].Partij;
+	document.getElementById('3th score').innerHTML = endscore[2].Partij;
 
 }
+
+
 
 
 
