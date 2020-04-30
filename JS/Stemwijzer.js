@@ -15,6 +15,7 @@
 	var button_question_back = document.querySelector("#backtoquestion");
 	var button_parties_back = document.querySelector("#backtoparties");
 	var end_button = document.querySelector('#end-button');
+	var button_back_preferences = document.querySelector('#back-to-preferences');
 	var result = [];
 	var endscore = [];
 
@@ -36,7 +37,7 @@
 	statement_next.onclick = function(){
 		uncheckAll();
 	}
-	button_thema.onclick = function(){ //hierow
+	button_thema.onclick = function(){
 		extraValue();
 		toParties();
 	}
@@ -61,6 +62,9 @@
 	end_button.onclick = function(){
 		Match();
 	}
+	button_back_preferences.onclick = function(){
+		backToPreferences();
+	}
 
 
 	var score;
@@ -68,36 +72,40 @@
 	var partiesNR = 0;
 	var vraag = 0;
 
+//start de functie start wanneer de window geladen wordt, practisch zorgt dit ervoor dat de challenge start
 window.onload = start();	
 
+//functie die de applicatie start door middel van 2 display functies
 function start(){	
 	displayQuestion(subjectsNR);
 	displayParties(vraag);	
 }
 
-
+//functie die er voor zorgt dat je tijdens het beantwoorden van de stellingen je terug kan gaan naar de vorige vraag
 function goBack(){
-	result.pop();
-	vraag--;
+	result.pop(); //verwijdert het laatst ingevulde antwoord
+	vraag--; //verlaagt de counter met -1
 	displayQuestion(vraag);
 	displayParties(vraag);
 }
-//moet nog bedenken hoe je van vraag 10 naar bijv vraag 3 terug kan gaan om te veranderen
 
+//deze functie zorgt ervoor dat je naar de volgende vraag gaat, en je antwoord opgeslagen wordt in een array.
 function next(event){
-	if (vraag == subjects.length - 1){
-		var totallength = subjects.length;
-
+		var totallength = subjects.length;	
+	if (vraag == subjects.length){
 		result.push(data = {
 		Vraag: vraag,
 		antwoord: event,
 		multiplier: 1,
 	});		
+		/*
+		Hier wordt er gekeken of de huide vraag ook gelijk staat aan die in de subjects lijst, als dit het geval is dan pakt hij de
+		array result en pusht daar de huidige vraag in, net als het antwoord wat gegeven wordt via de buttons. Dit is de event. en een multiplier
+		die later gebruikt wordt. 
+		*/
 		importantSubjects();
 		generateStatements();
 	} else {
-		var totallength = subjects.length;
-
 		result.push(data = {
 		Vraag: vraag,
 		antwoord: event,
@@ -380,10 +388,11 @@ function toFinalResult(){
 
 	document.getElementById('thema-title').innerHTML = 'De eindresultaten als volgt';
 	document.getElementById('thema-statement').innerHTML = 'Uw mening komt het meest overeen met';
-	document.getElementById('end-screen').style.display = "initial";
+	document.getElementById('end-screen').style.display = "block";
 	document.getElementById('backtoparties').style.display = "none";
 	document.getElementById('end-button').style.display = "none";
-	document.getElementById('partijen-keuzes').style.display = "none";		
+	document.getElementById('partijen-keuzes').style.display = "none";
+	document.getElementById('back-to-preferences').style.display = "initial";		
 
 	var checks = document.getElementsByClassName('input-partie');
 	var allParties = parties;
@@ -408,7 +417,18 @@ function toFinalResult(){
 	document.getElementById('1st score').innerHTML = endscore[0].Partij;
 	document.getElementById('2nd score').innerHTML = endscore[1].Partij;
 	document.getElementById('3th score').innerHTML = endscore[2].Partij;
+}
 
+function backToPreferences(){
+
+	document.getElementById('thema-title').innerHTML = 'Welke partijen wilt u meenemen in het resultaat?';
+	document.getElementById('thema-statement').innerHTML = 'U kunt kiezen voor zittende partijen, die nu in de Tweede Kamer vertegenwoordigd zijn. Daarbij nemen we ook de partijen mee die in de peilingen op minimaal een zetel staan. U kunt alle partijen meenemen en u kunt een eigen selectie maken van tenminste drie partijen.';
+	document.getElementById('end-screen').style.display = "none";
+	document.getElementById('backtoparties').style.display = "initial";
+	document.getElementById('end-button').style.display = "initial";
+	document.getElementById('partijen-keuzes').style.display = "initial";
+	document.getElementById('back-to-preferences').style.display = "none";
+	endscore = [];
 }
 
 

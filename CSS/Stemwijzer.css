@@ -641,7 +641,8 @@ label{
 
 #end-screen{
 	display: none;
-	margin: 100px;
+	margin: auto;
+	width: 1000px;
 }
 
 .placement{
@@ -650,9 +651,29 @@ label{
 
 .end-result{
 	display: inline-block;
-	margin-left: 125px;	
+	margin-left: 25px;
+	margin-right: 25px;	
 }
 
 .end-score{
 	color: #01B4DC;
+}
+
+#back-to-preferences{
+	width: 50px;
+	height: 50px;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-image: url('https://tweedekamer2017.stemwijzer.nl/public/gfx/icon-arrow-back.svg');
+	background-color: #E7EAEB;
+	border-radius: 50px;
+	transition: transform .2s;
+	border: 0;
+	display: none;		
+}
+
+#back-to-preferences:hover{
+	transform: translateX(-3px);
+	border: 0;
+	cursor: pointer;	
 }
