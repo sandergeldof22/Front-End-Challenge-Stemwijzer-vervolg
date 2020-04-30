@@ -296,6 +296,9 @@ function selectAll(){
 
 function selectMain(){
 	var checks = document.getElementsByClassName('input-partie');
+	for (var i = 0; i < checks.length; i++){
+		checks[i].checked = false;
+	}
 	for (var i = 0; i < 12; i++){
 		checks[i].checked = true;
 	}
@@ -303,6 +306,9 @@ function selectMain(){
 
 function selectSecular(){
 	var checks = document.getElementsByClassName('input-partie');
+	for (var i = 0; i < checks.length; i++){
+		checks[i].checked = false;
+	}
 	for (var i = 12; i < checks.length; i++){
 		checks[i].checked = true;
 	}
@@ -384,11 +390,11 @@ function toFinalResult(){
 	}
 
 	document.getElementById('thema-title').innerHTML = 'De eindresultaten als volgt';
-	document.getElementById('thema-statements').innerHTML = 'Uw mening komt het meest overeen met';
-	document.getElementById('partijen-keuzes').style.display = 'none';
-	document.getElementById('end-screen').style.display = 'initial';
-	document.getElementById('backtoparties').style.display = 'none';
-	document.getElementById('end-button').style.display = 'none';
+	document.getElementById('thema-statement').innerHTML = 'Uw mening komt het meest overeen met';
+	document.getElementById('end-screen').style.display = "initial";
+	document.getElementById('backtoparties').style.display = "none";
+	document.getElementById('end-button').style.display = "none";
+	document.getElementById('partijen-keuzes').style.display = "none";	
 
 }
 
