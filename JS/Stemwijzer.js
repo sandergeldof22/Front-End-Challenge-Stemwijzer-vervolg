@@ -1,68 +1,68 @@
 	var	statement = document.querySelector("#statement");
 	var	title = document.querySelector("#title");
-	var	button_agree = document.querySelector("#button-eens");
-	var	button_disagree = document.querySelector("#button-oneens");
-	var	button_unknown = document.querySelector("#button-geen");
-	var button_back = document.querySelector(".goback");
-	var button_overslaan = document.querySelector("#overslaan");
-	var statement_next = document.querySelector('#statement-next');
-	var button_thema = document.querySelector('#thema-button');
-	var select_sitting = document.querySelector('#select-sitting');
-	var select_all = document.querySelector('#select-all');
-	var select_secular = document.querySelector('#select-secular');
-	var select_remove = document.querySelector('#select-remove');
+	var	button_Agree = document.querySelector("#button-eens");
+	var	button_Disagree = document.querySelector("#button-oneens");
+	var	button_Unknown = document.querySelector("#button-geen");
+	var button_Back = document.querySelector(".goback");
+	var button_Overslaan = document.querySelector("#overslaan");
+	var statement_Next = document.querySelector('#statement-next');
+	var button_Thema = document.querySelector('#thema-button');
+	var select_Sitting = document.querySelector('#select-sitting');
+	var select_All = document.querySelector('#select-all');
+	var select_Secular = document.querySelector('#select-secular');
+	var select_Remove = document.querySelector('#select-remove');
 	var all_buttons = document.querySelector(".vragenbuttons");
-	var button_question_back = document.querySelector("#backtoquestion");
-	var button_parties_back = document.querySelector("#backtoparties");
-	var end_button = document.querySelector('#end-button');
-	var button_back_preferences = document.querySelector('#back-to-preferences');
+	var button_Question_Back = document.querySelector("#backtoquestion");
+	var button_Parties_Back = document.querySelector("#backtoparties");
+	var end_Button = document.querySelector('#end-button');
+	var button_Back_Preferences = document.querySelector('#back-to-preferences');
 	var result = [];
-	var endscore = [];
+	var endScore = [];
 
-	button_back.onclick = function(){
+	button_Back.onclick = function(){
 		goBack();
 	}
-	button_agree.onclick = function(){
+	button_Agree.onclick = function(){
 		next("pro");
 	}
-	button_disagree.onclick = function(){
+	button_Disagree.onclick = function(){
 		next("contra");
 	}
-	button_unknown.onclick = function(){
+	button_Unknown.onclick = function(){
 		next("none");
 	}
-	button_overslaan.onclick = function(){
+	button_Overslaan.onclick = function(){
 		next(null);
 	}
-	statement_next.onclick = function(){
+	statement_Next.onclick = function(){
 		uncheckAll();
 	}
-	button_thema.onclick = function(){
+	button_Thema.onclick = function(){
 		extraValue();
 		toParties();
 	}
-	select_all.onclick = function(){
+	select_All.onclick = function(){
 		selectAll();
 	}
-	select_sitting.onclick = function(){
+	select_Sitting.onclick = function(){
 		selectMain();
 	}
-	select_remove.onclick = function(){
+	select_Remove.onclick = function(){
 		unSelectAll();
 	}
-	select_secular.onclick = function(){
+	select_Secular.onclick = function(){
 		selectSecular();
 	}
-	button_question_back.onclick = function(){
+	button_Question_Back.onclick = function(){
 		backToQuestions();
 	}
-	button_parties_back.onclick = function(){
+	button_Parties_Back.onclick = function(){
 		backToSubjects();
 	}
-	end_button.onclick = function(){
+	end_Button.onclick = function(){
 		Match();
 	}
-	button_back_preferences.onclick = function(){
+	button_Back_Preferences.onclick = function(){
 		backToPreferences();
 	}
 
@@ -91,7 +91,7 @@ function goBack(){
 
 		//deze functie zorgt ervoor dat je naar de volgende vraag gaat, en je antwoord opgeslagen wordt in een array.
 function next(event){
-		var totallength = subjects.length;	
+		var totalLength = subjects.length;	
 	if (vraag == subjects.length - 1){
 		result.push(data = {
 		Vraag: vraag,
@@ -154,11 +154,11 @@ function displayQuestion(subjectsNR){
 		daarop wordt het complete element geappend aan een van de div's die gelijk staat aan de partij hun mening (pro, contra, none etc)
 		*/
 function displayParties(vraag){
-	var allparties = subjects[vraag].parties;
+	var allParties = subjects[vraag].parties;
 
-	var totallength = subjects[vraag].parties.length;
+	var totalLength = subjects[vraag].parties.length;
 
-	for (let partiesNR = 0; partiesNR < totallength; partiesNR++){	
+	for (let partiesNR = 0; partiesNR < totalLength; partiesNR++){	
 
 		var parties = subjects[vraag].parties[partiesNR];
 
@@ -168,14 +168,14 @@ function displayParties(vraag){
 
 		var party = document.createElement("DETAILS");
 		party.className = "partijstatement";
-		var partysummary = document.createElement("SUMMARY");
-		var partysummarytext = document.createTextNode(name);
-		partysummary.appendChild(partysummarytext);
-		var partylong = document.createElement("P");
-		var partylongtext = document.createTextNode(opinion);
-		partylong.appendChild(partylongtext);
-		party.appendChild(partysummary);
-		party.appendChild(partylong);
+		var partySummary = document.createElement("SUMMARY");
+		var partySummarytext = document.createTextNode(name);
+		partySummary.appendChild(partySummarytext);
+		var partyLong = document.createElement("P");
+		var partyLongText = document.createTextNode(opinion);
+		partyLong.appendChild(partyLongText);
+		party.appendChild(partySummary);
+		party.appendChild(partyLong);
 
 
 		if (position == 'pro') {
@@ -263,9 +263,9 @@ function extraValue(){
 	for(var i = 0; i < boxes.length; i++){
 		if (boxes[i].checked){
 			var box = boxes[i].id;
- 			var idnumber = box.substr(2);
-			if (idnumber == result[idnumber].Vraag){
-				result[idnumber].multiplier = 2;	
+ 			var idNumber = box.substr(2);
+			if (idNumber == result[idNumber].Vraag){
+				result[idNumber].multiplier = 2;	
 			}
 		}
 	}
@@ -475,11 +475,11 @@ function calculateResult(){
 			console.log(checks[i].value);
 			for (let partiesNR = 0; partiesNR < parties.length; partiesNR++){//loop opnieuw over alle partijen heen
 				if (checks[i].value === parties[partiesNR].name){//als de naam van de partij die u gekozen heeft in de checkbox (de partijnaam is het value)
-					var resultparty = parties[partiesNR].name; 
-					var resultscore = parties[partiesNR].score;
-					endscore.push(data = { //push dan de naam van de partij en de bijbehorende partij naar de endscore array
-						Partij: resultparty,
-						Score: resultscore,
+					var Resultparty = parties[partiesNR].name; 
+					var Resultscore = parties[partiesNR].score;
+					endScore.push(data = { //push dan de naam van de partij en de bijbehorende partij naar de endscore array
+						Partij: Resultparty,
+						Score: Resultscore,
 					});
 				}
 			}
@@ -487,11 +487,11 @@ function calculateResult(){
 			console.log(checks[i].value);
 		}
 	}
-	console.log(endscore);
+	console.log(endScore);
 	//voeg de top 3 partijen op volgorde van punten toe aan de eindpagina en laat ze de resultaten zien van de stemwijzer.
-	document.getElementById('1st score').innerHTML = endscore[0].Partij;
-	document.getElementById('2nd score').innerHTML = endscore[1].Partij;
-	document.getElementById('3th score').innerHTML = endscore[2].Partij;
+	document.getElementById('1st score').innerHTML = endScore[0].Partij;
+	document.getElementById('2nd score').innerHTML = endScore[1].Partij;
+	document.getElementById('3th score').innerHTML = endScore[2].Partij;
 }
 
 /*
@@ -507,7 +507,7 @@ function backToPreferences(){
 	document.getElementById('end-button').style.display = "initial";
 	document.getElementById('partijen-keuzes').style.display = "initial";
 	document.getElementById('back-to-preferences').style.display = "none";
-	endscore = [];
+	endScore = [];
 }
 
 
