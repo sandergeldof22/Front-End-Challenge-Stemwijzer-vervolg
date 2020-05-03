@@ -423,27 +423,19 @@ Onderstaande functie matched een score aan de partijen en in vang dat de gebruik
 dan wordt dit meegenomen in de score.
 */
 function Match(){
-	console.log(parties);
 	for(let partiesNR = 0; partiesNR < parties.length; partiesNR++){
 				parties.forEach(function (element) {
 					element.score = 0
 				}); //loopt over alle partijen heen en geeft ze in de parties array een object 'Score'. Waarin de score per partij wordt bijgehouden		
 	};
 		for(let answerNR in result){ //voor elke vraag loopt hij over de results heen
-			console.log('Dit is het resultaat van vraag: ' + answerNR);
-			console.log(result[answerNR]);
 				for (var partiesNR = 0; partiesNR < parties.length - 1; partiesNR++){ //loop een antwoord over alle partijen heen 
-					console.log(subjects[answerNR].parties[partiesNR]); 
 					if (result[answerNR].antwoord === subjects[answerNR].parties[partiesNR].position){// in geval dat dit het antwoord gelijk is aan dat van jou
 							if (result[answerNR].multiplier == 1){ // als de multiplier op 1 staat add hij 1 punt bij de partij
-								parties[partiesNR].score++;
-								console.log(parties[partiesNR].score);								
+								parties[partiesNR].score++;							
 							} else { // mocht de multiplier niet op 1 staan dan is er extra gewicht op deze vraag en krijgt 2 punten
 								parties[partiesNR].score+=2;
-								console.log(parties[partiesNR].score);
 							}
-					} else {
-						console.log(parties[partiesNR].score);
 					}
 				}
 		}
@@ -472,7 +464,6 @@ function calculateResult(){
 	var allParties = parties;
 	for (var i = 0; i < allParties.length; i++){ //loopt over alle partijen heen
 		if(checks[i].checked){ //als een partij gechecked is om mee te nemen doe dan het volgende
-			console.log(checks[i].value);
 			for (let partiesNR = 0; partiesNR < parties.length; partiesNR++){//loop opnieuw over alle partijen heen
 				if (checks[i].value === parties[partiesNR].name){//als de naam van de partij die u gekozen heeft in de checkbox (de partijnaam is het value)
 					var Resultparty = parties[partiesNR].name; 
@@ -483,11 +474,8 @@ function calculateResult(){
 					});
 				}
 			}
-		} else {
-			console.log(checks[i].value);
 		}
 	}
-	console.log(endScore);
 	//voeg de top 3 partijen op volgorde van punten toe aan de eindpagina en laat ze de resultaten zien van de stemwijzer.
 	document.getElementById('1st score').innerHTML = endScore[0].Partij;
 	document.getElementById('2nd score').innerHTML = endScore[1].Partij;
